@@ -9,4 +9,4 @@ ENV BUNDLE_PATH /app_cache/bundle
 
 ADD . /app
 
-CMD bundle check || bundle && rails s -b 0.0.0.0
+CMD bundle check || bundle && bundle exec puma -C config/puma.rb
