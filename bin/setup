@@ -1,0 +1,67 @@
+#!/usr/bin/env ruby
+require "pathname"
+
+APP_ROOT = Pathname.new File.expand_path("../../", __FILE__)
+
+Dir.chdir APP_ROOT do
+  puts "== Preparing System =="
+  system "mkdir -p .git/safe"
+
+  unless system "xcode-select -p > /dev/null"
+    puts "== Xcode Command Line Tools Missing =="
+    puts "Please install with: xcode-select --install"
+    exit 1
+  end
+
+  if `command -v postgres`.empty?
+    puts "== PostgreSQL Missing =="
+    puts "Please install PostgreSQL before proceeding (e.g. brew install postgresql)"
+    exit 1
+  end
+
+  if `command -v heroku`.empty?
+    puts "== Heroku Toolbelt Missing =="
+    puts "Please install Heroku Toolbelt (e.g. brew install heroku-toolbelt)"
+    exit 1
+  end
+
+  if `command -v docker`.empty?
+    puts "== Docker Missing =="
+    puts "Please install Docker before proceeding (e.g. brew cask install dockertoolbox)"
+    puts "More information available at: https://gist.github.com/53920ead00a6072ce979"
+    exit 1
+  end
+
+  if `grep heroku .git/config`.empty?
+    puts "== Adding Heroku git remotes =="
+    system "git config heroku.remote staging"
+    system "heroku git:remote -r staging -a stacky-staging"
+    system "heroku git:remote -r production -a stacky-production"
+  end
+
+  puts "== Installing dependencies =="
+  system "gem install bundler --conservative"
+  system "bundle check > /dev/null || bundle install --path vendor/bundle --binstubs vendor/bundle/bin"
+  system "spring stop &> /dev/null"
+
+  puts "== Checking Environment Variables =="
+  require "bundler/setup"
+  require "dotenv"
+
+  env_example = Dotenv::Environment.new(".env.local.example").load
+  env = Dotenv::Environment.new(".env.local").load rescue {}
+  missing_env_vars = env_example.keys - env.keys
+
+  if missing_env_vars.any?
+    puts "== WARNING: The following ENV vars are not listed in your .env.local file =="
+    missing_env_vars.each { |var| puts "#{var}=#{env_example[var]}" }
+  end
+
+  puts "== Preparing database =="
+  system "bundle exec rake db:drop:all db:create:all"
+  system "bundle exec rake db:migrate db:test:prepare"
+
+  puts "== Removing old logs =="
+  system "rm -f log/*"
+  system "rm -rf tmp/cache"
+end
