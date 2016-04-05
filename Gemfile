@@ -2,18 +2,17 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.6'
 
+gem 'high_voltage', '~> 2.4.0'  # Easily include static pages
 gem 'pg',           '~> 0.15.0' # Use postgresql as the database for Active Record
 gem 'puma',         '~> 3.3.0'  # Fast, threaded web server
 gem 'rack-timeout', '~> 0.4.0'  # Terminate long running requests
 
-group :frontend do
-  gem 'coffee-rails', '~> 4.1.0'  # Use CoffeeScript for .js.coffee assets & views
-  gem 'jquery-rails', '~> 4.1.0'  # Use jQuery for its JavaScript utilities
-  gem 'sass-rails',   '~> 5.0.0'  # Use SASS for stylesheets
-  gem 'slim-rails',   '~> 3.0.0'  # Succinct view template language similar to HAML
-  gem 'turbolinks',   '~> 2.5.0'  # Follow links faster via AJAX
-  gem 'uglifier',     '>= 1.3.0'  # Compressor for JavaScript assets
-end
+gem 'coffee-rails', '~> 4.1.0'  # Use CoffeeScript for .js.coffee assets & views
+gem 'jquery-rails', '~> 4.1.0'  # Use jQuery for its JavaScript utilities
+gem 'sass-rails',   '~> 5.0.0'  # Use SASS for stylesheets
+gem 'slim-rails',   '~> 3.0.0'  # Succinct view template language similar to HAML
+gem 'turbolinks',   '~> 2.5.0'  # Follow links faster via AJAX
+gem 'uglifier',     '>= 1.3.0'  # Compressor for JavaScript assets
 
 group :development, :test do
   gem 'pry-awesome_print'  # Auto awesome print in pry
