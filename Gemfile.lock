@@ -37,6 +37,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    awesome_print (1.6.1)
     builder (3.2.2)
     coderay (1.1.1)
     coffee-rails (4.1.1)
@@ -142,6 +143,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jquery-rails (~> 4.1.0)
   pg (~> 0.15.0)
+  pry-awesome_print
   pry-rails
   puma (~> 3.3.0)
   rack-timeout (~> 0.4.0)

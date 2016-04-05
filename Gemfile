@@ -15,9 +15,7 @@ group :frontend do
 end
 
 group :development, :test do
-  gem 'pry-rails'
-end
-
-group :development do
-  gem 'spring'
+  gem 'pry-awesome_print'  # Auto AP in pry
+  gem 'pry-rails'          # Adds pry, an interactive REPL debugger; Try show-models
+  gem 'spring'             # Speed up development by keeping your application running
 end
