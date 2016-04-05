@@ -9,7 +9,13 @@ services:
       - "3000:3000"
     volumes:
       - .:/app
+    volumes_from:
+      - app_cache
     links:
       - db
     depends_on:
       - db
+  app_cache:
+    image: busybox
+    volumes:
+      - /app_cache
