@@ -12,7 +12,7 @@ gem 'coffee-rails',    '~> 4.1.0'  # Use CoffeeScript for .js.coffee assets & vi
 gem 'jquery-rails',    '~> 4.1.0'  # Use jQuery for its JavaScript utilities
 gem 'sass-rails',      '~> 5.0.0'  # Use SASS for stylesheets
 gem 'slim-rails',      '~> 3.0.0'  # Succinct view template language similar to HAML
-gem 'turbolinks',      '~> 2.5.0'  # Follow links faster via AJAX
+gem 'turbolinks',      '~> 5.0.0.beta' # Follow links faster via AJAX
 gem 'uglifier',        '>= 1.3.0'  # Compressor for JavaScript assets
 
 group :development, :test do
