@@ -2,8 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.6'
 
-gem 'pg',   '~> 0.15.0'
-gem 'puma', '~> 3.3.0'
+gem 'pg',           '~> 0.15.0'
+gem 'puma',         '~> 3.3.0'
+gem 'rack-timeout', '~> 0.4.0'
 
 group :frontend do
   gem 'coffee-rails', '~> 4.1.0'
