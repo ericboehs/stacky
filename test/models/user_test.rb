@@ -1,7 +1,11 @@
-require 'test_helper'
-
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def test_allows_valid_users
+    user = User.new({
+      email: 'allows_valid_users@example.com',
+      password: 'password',
+      password_confirmation: 'password',
+    })
+
+    user.valid?.must_equal true
+  end
 end

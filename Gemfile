@@ -22,3 +22,11 @@ group :development, :test do
   gem 'pry-rails'          # Adds pry, an interactive REPL debugger; Try show-models
   gem 'spring'             # Speed up development by keeping your application running
 end
+
+
+group :test do
+  gem 'minitest-spec-rails' # The minitest gem that uses existing Rails dirs
+  gem 'poltergeist'         # PhantomJS driver for Capybara
+  gem 'purdytest'           # 57 lines of code to colorize minitest
+  gem 'selenium-webdriver'  # For running tests in your browser
+end

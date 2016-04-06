@@ -1,4 +1,13 @@
-FROM rails:4.2.6
+FROM ruby:2.3
+
+RUN apt-get update && apt-get install -y apt-transport-https && \
+  curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - && \
+  echo 'deb https://deb.nodesource.com/node_4.x jessie main' > /etc/apt/sources.list.d/nodesource.list && \
+  echo 'deb-src https://deb.nodesource.com/node_4.x jessie main' >> /etc/apt/sources.list.d/nodesource.list && \
+  apt-get update && \
+  apt-get install -y nodejs postgresql-client
+
+RUN npm install -g phantomjs-prebuilt
 
 EXPOSE 3000
 
