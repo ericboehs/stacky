@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.6'
 
+gem 'devise',       '~> 3.5.0'  # Flexible authentication with Warden
 gem 'high_voltage', '~> 2.4.0'  # Easily include static pages
 gem 'pg',           '~> 0.15.0' # Use postgresql as the database for Active Record
 gem 'puma',         '~> 3.3.0'  # Fast, threaded web server

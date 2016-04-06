@@ -7,6 +7,6 @@ WORKDIR /app
 
 ENV BUNDLE_PATH /app_cache/bundle
 
-ADD . /app
+COPY . /app
 
 CMD bundle check || bundle && bundle exec puma -C config/puma.rb
