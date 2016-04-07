@@ -6,6 +6,7 @@ gem 'devise',       '~> 3.5.0'  # Flexible authentication with Warden
 gem 'high_voltage', '~> 2.4.0'  # Easily include static pages
 gem 'pg',           '~> 0.15.0' # Use postgresql as the database for Active Record
 gem 'puma',         '~> 3.3.0'  # Fast, threaded web server
+gem 'que',          '~> 0.11.0' # Job queue that uses PostgreSQL's advisory locks
 gem 'rack-timeout', '~> 0.4.0'  # Terminate long running requests
 
 gem 'bootstrap-sass',  '~> 3.3.0'  # Add bootstrap css framework
