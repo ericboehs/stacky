@@ -2,6 +2,10 @@ nav.navbar.navbar-inverse
   .container-fluid
     .navbar-header
       = link_to t('global.page_title'), root_path, class: 'navbar-brand'
+
+    ul.nav.navbar-nav
+      li = link_to 'Nodes', nodes_path
+
     ul.nav.navbar-nav.navbar-right
       - if current_user
         li = link_to 'Account', edit_user_registration_path

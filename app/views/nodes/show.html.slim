@@ -1,0 +1,22 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @node.name
+p
+  strong Status:
+  = @node.status
+p
+  strong Host:
+  = @node.host
+p
+  strong Stack:
+  = @node.stack
+
+p
+  strong Log:
+  .node-log
+
+= link_to 'Edit', edit_node_path(@node)
+'|
+= link_to 'Back', nodes_path
