@@ -9,6 +9,9 @@ RUN apt-get update && apt-get install -y apt-transport-https && \
 
 RUN npm install -g phantomjs-prebuilt
 
+RUN curl -L https://github.com/docker/machine/releases/download/v0.6.0/docker-machine-Linux-x86_64 > /usr/local/bin/docker-machine && \
+  chmod +x /usr/local/bin/docker-machine
+
 EXPOSE 3000
 
 RUN mkdir /app
