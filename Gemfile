@@ -1,13 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.6'
+gem 'rails', '~> 5.0.0.beta3'
 
-gem 'devise',       '~> 3.5.0'  # Flexible authentication with Warden
-gem 'high_voltage', '~> 2.4.0'  # Easily include static pages
-gem 'pg',           '~> 0.15.0' # Use postgresql as the database for Active Record
+gem 'devise',       '~> 4.0.0.rc2'  # Flexible authentication with Warden
+gem 'high_voltage', github: 'thoughtbot/high_voltage' # Easily include static pages
+gem 'pg',           '~> 0.18.0' # Use postgresql as the database for Active Record
 gem 'puma',         '~> 3.3.0'  # Fast, threaded web server
 gem 'que',          '~> 0.11.0' # Job queue that uses PostgreSQL's advisory locks
-gem 'rack-timeout', '~> 0.4.0'  # Terminate long running requests
 
 gem 'bootstrap-sass',  '~> 3.3.0'  # Add bootstrap css framework
 gem 'coffee-rails',    '~> 4.1.0'  # Use CoffeeScript for .js.coffee assets & views
@@ -30,4 +29,8 @@ group :test do
   gem 'poltergeist'         # PhantomJS driver for Capybara
   gem 'purdytest'           # 57 lines of code to colorize minitest
   gem 'selenium-webdriver'  # For running tests in your browser
+end
+
+group :production do
+  gem 'rack-timeout', '~> 0.4.0'  # Terminate long running requests
 end
